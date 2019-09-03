@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,35 +27,41 @@ public class MainActivity extends AppCompatActivity {
         TextView text = (TextView) findViewById(R.id.textView);
 
         if (btnI <= 7) {
-            text.setText(text.getText().toString() + button.getText().toString() + ": " + word.getText() + "\n");
-
-            if (btnI == 0) {
-                name1 = word.getText().toString();
-                button.setText("a number");
-            } else if (btnI == 1) {
-                age = word.getText().toString();
-                button.setText("a color");
-            } else if (btnI == 2) {
-                color = word.getText().toString();
-                button.setText("an animal");
-            } else if (btnI == 3) {
-                animal = word.getText().toString();
-                button.setText("a big number");
-            } else if (btnI == 4) {
-                days = word.getText().toString();
-                button.setText("a name");
-            } else if (btnI == 5) {
-                name2 = word.getText().toString();
-                button.setText("an object");
-            } else if (btnI == 6) {
-                thing = word.getText().toString();
-                button.setText("a small number");
-            } else if (btnI == 7) {
-                height = word.getText().toString();
-                button.setText("finished story");
+            if(word.getText().toString().equals("")){
+                Toast toast = Toast.makeText(getApplicationContext(), "Please type in somethings", Toast.LENGTH_SHORT);
+                toast.show();
             }
-            word.setText("");
-            btnI += 1;
+            else {
+                text.setText(text.getText().toString() + button.getText().toString() + ": " + word.getText() + "\n");
+
+                if (btnI == 0) {
+                    name1 = word.getText().toString();
+                    button.setText("a number");
+                } else if (btnI == 1) {
+                    age = word.getText().toString();
+                    button.setText("a color");
+                } else if (btnI == 2) {
+                    color = word.getText().toString();
+                    button.setText("an animal");
+                } else if (btnI == 3) {
+                    animal = word.getText().toString();
+                    button.setText("a big number");
+                } else if (btnI == 4) {
+                    days = word.getText().toString();
+                    button.setText("a name");
+                } else if (btnI == 5) {
+                    name2 = word.getText().toString();
+                    button.setText("an object");
+                } else if (btnI == 6) {
+                    thing = word.getText().toString();
+                    button.setText("a small number");
+                } else if (btnI == 7) {
+                    height = word.getText().toString();
+                    button.setText("finished story");
+                }
+                word.setText("");
+                btnI += 1;
+            }
 
         }
         else{
@@ -63,8 +70,8 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra(Intent.EXTRA_TEXT, "");
             //Do this^^^^^^^ and much more
         }
-    }
 
+}
     public void reset(View v){
         EditText word = (EditText) findViewById(R.id.editWord);
         Button button = (Button) findViewById(R.id.buttonSubmit);
