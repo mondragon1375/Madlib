@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
             TextView text2 = (TextView) findViewById(R.id.textView2);
 
             if (word.getText().toString().equals("")) {
-                Toast toast = Toast.makeText(getApplicationContext(), "Please type in somethings", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(getApplicationContext(), "Please type in something!", Toast.LENGTH_SHORT);
                 toast.show();
             } else {
                 text1.setText(text1.getText().toString() + button.getText().toString() + ":\n");
@@ -69,18 +69,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void sendInfo (View v){
-        Intent intent = new Intent(this, MadLibStory.class);
+        if (btnI < 7){
+            Toast toast = Toast.makeText(getApplicationContext(), "Please finish the story!", Toast.LENGTH_SHORT);
+            toast.show();
+        }
 
-        intent.putExtra(MadLibStory.NAME1, name1);
-        intent.putExtra(MadLibStory.NAME2, name2);
-        intent.putExtra(MadLibStory.COLOR, color);
-        intent.putExtra(MadLibStory.ANIMAL, animal);
-        intent.putExtra(MadLibStory.THING, thing);
-        intent.putExtra(MadLibStory.AGE, age);
-        intent.putExtra(MadLibStory.DAYS, days);
-        intent.putExtra(MadLibStory.HEIGHT, height);
+        else {
+            Intent intent = new Intent(this, MadLibStory.class);
 
-        startActivity(intent);
+            intent.putExtra(MadLibStory.NAME1, name1);
+            intent.putExtra(MadLibStory.NAME2, name2);
+            intent.putExtra(MadLibStory.COLOR, color);
+            intent.putExtra(MadLibStory.ANIMAL, animal);
+            intent.putExtra(MadLibStory.THING, thing);
+            intent.putExtra(MadLibStory.AGE, age);
+            intent.putExtra(MadLibStory.DAYS, days);
+            intent.putExtra(MadLibStory.HEIGHT, height);
+
+            startActivity(intent);
+        }
     }
 
     public void reset(View v){
