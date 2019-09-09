@@ -21,18 +21,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void buttonNext(View v){
-        EditText word = (EditText) findViewById(R.id.editWord);
-        Button button = (Button) findViewById(R.id.buttonSubmit);
-        TextView text1 = (TextView) findViewById(R.id.textView1);
-        TextView text2 = (TextView) findViewById(R.id.textView2);
+    public void buttonNext(View v) {
 
-        if (btnI <= 7) {
-            if(word.getText().toString().equals("")){
+        if (btnI < 8) {
+            EditText word = (EditText) findViewById(R.id.editWord);
+            Button button = (Button) findViewById(R.id.buttonSubmit);
+            TextView text1 = (TextView) findViewById(R.id.textView1);
+            TextView text2 = (TextView) findViewById(R.id.textView2);
+
+            if (word.getText().toString().equals("")) {
                 Toast toast = Toast.makeText(getApplicationContext(), "Please type in somethings", Toast.LENGTH_SHORT);
                 toast.show();
-            }
-            else {
+            } else {
                 text1.setText(text1.getText().toString() + button.getText().toString() + ":\n");
                 text2.setText(text2.getText().toString() + word.getText().toString() + "\n");
 
@@ -61,28 +61,28 @@ public class MainActivity extends AppCompatActivity {
                     height = word.getText().toString();
                     button.setText("finished story");
                 }
+
                 word.setText("");
                 btnI += 1;
             }
-
         }
+    }
 
-        else{
-            //String name1, name2, color, animal, thing, age, days, height;
-            Intent intent = new Intent(this, MadLibStory.class);
-            intent.putExtra(MadLibStory.NAME1, name1);
-            intent.putExtra(MadLibStory.NAME2, name2);
-            intent.putExtra(MadLibStory.COLOR, color);
-            intent.putExtra(MadLibStory.ANIMAL, animal);
-            intent.putExtra(MadLibStory.THING, thing);
-            intent.putExtra(MadLibStory.AGE, age);
-            intent.putExtra(MadLibStory.DAYS, days);
-            intent.putExtra(MadLibStory.HEIGHT, height);
+    public void sendInfo (View v){
+        Intent intent = new Intent(this, MadLibStory.class);
 
-            startActivity(intent);
-        }
+        intent.putExtra(MadLibStory.NAME1, name1);
+        intent.putExtra(MadLibStory.NAME2, name2);
+        intent.putExtra(MadLibStory.COLOR, color);
+        intent.putExtra(MadLibStory.ANIMAL, animal);
+        intent.putExtra(MadLibStory.THING, thing);
+        intent.putExtra(MadLibStory.AGE, age);
+        intent.putExtra(MadLibStory.DAYS, days);
+        intent.putExtra(MadLibStory.HEIGHT, height);
 
-}
+        startActivity(intent);
+    }
+
     public void reset(View v){
         EditText word = (EditText) findViewById(R.id.editWord);
         Button button = (Button) findViewById(R.id.buttonSubmit);

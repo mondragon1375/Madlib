@@ -3,10 +3,9 @@ package com.example.madlib;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.TextView;
 
 public class MadLibStory extends AppCompatActivity {
-    //String name1, name2, color, animal, thing, age, days, height;
-
     public static final String NAME1 = "name1";
     public static final String NAME2 = "name2";
     public static final String COLOR = "color";
@@ -31,9 +30,12 @@ public class MadLibStory extends AppCompatActivity {
         String days = intent.getStringExtra(DAYS);
         String height = intent.getStringExtra(HEIGHT);
 
-        String story = "Test: " + name1 + " is " + age + " years old but is still loves the outdoors." +
-                name1 + " went to the zoo today with " + name2 + " to go see their favorite animal the " +
-                animal + ". However. when they came to view the " + animal + ", it was " + color + " and stood " +
-                height + " feet tall! It was only the " + days + " day they were there but something told them";
+        String story = name1 + " is " + age + " years old but is someone who still loves the outdoors.";
+        story += name1 + " went to the zoo today with " + name2 + " to go see their favorite animal the ";
+        story += animal + ". However. when they came to view the " + animal + ", it was " + color + " and stood ";
+        story += height + " feet tall! It was only the " + days + " day they were there but something told them";
+
+        TextView text = (TextView) findViewById(R.id.story);
+        text.setText(story);
     }
 }
