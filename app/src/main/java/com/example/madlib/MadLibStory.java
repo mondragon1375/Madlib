@@ -33,7 +33,8 @@ public class MadLibStory extends AppCompatActivity {
         String story = name1 + " is " + age + " years old but is someone who still loves the outdoors.";
         story += name1 + " went to the zoo today with " + name2 + " to go see their favorite animal the ";
         story += animal + ". However. when they came to view the " + animal + ", it was " + color + " and stood ";
-        story += height + " feet tall! It was only the " + days + " day they were there but something told them";
+        story += height + " feet tall! It was only " + days + " days when they were let out of the " + thing + "!";
+        story += height + " What at day at the zoo!";
 
         TextView text = (TextView) findViewById(R.id.story);
         text.setText(story);
